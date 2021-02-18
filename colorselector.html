@@ -10,17 +10,60 @@
   <body>
     <h1>Color Palette Designer</h1>
 
-    <input type="color" id="colorselect" name="colorselect" value="#000000" />
-    <div id="boxes">
-      <div id="showcolor"></div>
-      <div id="showcolor"></div>
-      <div id="showcolor"></div>
-      <div id="showcolor"></div>
-      <div id="showcolor"></div>
+    <div id="selectcolor">
+      <label
+        >Select color
+        <input
+          type="color"
+          id="colorselect"
+          name="colorselect"
+          value="#000000"
+        />
+      </label>
     </div>
-    <input type="text" id="rgbcolor" name="rgbcolor" value="RGB" />
-    <input type="text" id="hexcolor" name="hexcolor" value="Hex" />
-    <input type="text" id="hslcolor" name="hslcolor" value="HSL" />
+
+    <label>Color harmony</label>
+    <select name="harmony" id="harmony">
+      <option value="analo">Analogous</option>
+      <option value="mono">Monochromatic</option>
+      <option value="tri">Triad</option>
+      <option value="compl">Complementary</option>
+      <option value="comp">Compound</option>
+      <option value="shad">Shades</option>
+    </select>
+
+    <div id="colorinfo">
+      <div id="color_a">
+        <div id="colorbox_a" class="colorbox"></div>
+        <div class="hex">hex: <span class="value"></span></div>
+        <div class="rgb">rgb: <span class="value"></span></div>
+        <div class="hsl">hsl: <span class="value"></span></div>
+      </div>
+      <div id="color_b">
+        <div id="colorbox_b" class="colorbox"></div>
+        <div class="hex">hex: <span class="value"></span></div>
+        <div class="rgb">rgb: <span class="value"></span></div>
+        <div class="hsl">hsl: <span class="value"></span></div>
+      </div>
+      <div id="color_c">
+        <div id="colorbox_c" class="colorbox"></div>
+        <div class="hex">hex: <span class="value"></span></div>
+        <div class="rgb">rgb: <span class="value"></span></div>
+        <div class="hsl">hsl: <span class="value"></span></div>
+      </div>
+      <div id="color_d">
+        <div id="colorbox_d" class="colorbox"></div>
+        <div class="hex">hex: <span class="value"></span></div>
+        <div class="rgb">rgb: <span class="value"></span></div>
+        <div class="hsl">hsl: <span class="value"></span></div>
+      </div>
+      <div id="color_e">
+        <div id="colorbox_e" class="colorbox"></div>
+        <div class="hex">hex: <span class="value"></span></div>
+        <div class="rgb">rgb: <span class="value"></span></div>
+        <div class="hsl">hsl: <span class="value"></span></div>
+      </div>
+    </div>
 
     <script src="colorselector.js"></script>
   </body>
