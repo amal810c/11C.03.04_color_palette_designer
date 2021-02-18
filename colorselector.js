@@ -45,7 +45,6 @@ function calculateAnalo(hslObject) {
   //console.log(newH);
   const analocolor_a = { h: newH, s: newS, l: newL };
   //
-  console.log(analocolor_a);
   newH = newH + ten;
   const analocolor_b = { h: newH, s: newS, l: newL };
   //console.log(newH);
@@ -65,10 +64,120 @@ function calculateAnalo(hslObject) {
   hslHarmonyToRgb(analocolor_e, "e");
 }
 
-function calculateMono(hslObject) {}
-function calculateTri(hslObject) {}
-function calculateCompl(hslObject) {}
-function calculateComp(hslObject) {}
+function calculateMono(hslObject) {
+  let ten = 10;
+  let newH = hslObject.h;
+  let newLessS = hslObject.s - ten;
+  let newMoreS = hslObject.s + ten;
+  let newLessL = hslObject.l - ten;
+  let newMoreL = hslObject.l + ten;
+  let newL = hslObject.l;
+  let newS = hslObject.s;
+  //less S
+  const monocolor_a = { h: newH, s: newLessS, l: newL };
+  //
+  //more S
+  const monocolor_b = { h: newH, s: newMoreS, l: newL };
+  //console.log(newH);
+  //
+  //less L
+  const monocolor_d = { h: newH, s: newS, l: newLessL };
+  //console.log(newH);
+  //
+  //more L
+  const monocolor_e = { h: newH, s: newS, l: newMoreL };
+  //console.log(newH);
+  //
+  hslHarmonyToRgb(monocolor_a, "a");
+  hslHarmonyToRgb(monocolor_b, "b");
+  hslHarmonyToRgb(hslObject, "c");
+  hslHarmonyToRgb(monocolor_d, "d");
+  hslHarmonyToRgb(monocolor_e, "e");
+}
+
+function calculateTri(hslObject) {
+  let shifted60 = hslObject.h + 60;
+  let shifted120 = hslObject.h + 120;
+  let moreL = hslObject.l + 10;
+  let lessL = hslObject.l - 10;
+  let newL = hslObject.l;
+  let newS = hslObject.s;
+
+  //shifted 60
+  const tricolor_a = { h: shifted60, s: newS, l: newL };
+  //
+  //shifted 120
+  const tricolor_b = { h: shifted120, s: newS, l: newL };
+  //console.log(newH);
+  //
+  //shifted 60 more L
+  const tricolor_d = { h: shifted60, s: newS, l: moreL };
+  //console.log(newH);
+  //
+  //shfted 120 less L
+  const tricolor_e = { h: shifted120, s: newS, l: lessL };
+  //console.log(newH);
+  //
+  hslHarmonyToRgb(tricolor_a, "a");
+  hslHarmonyToRgb(tricolor_b, "b");
+  hslHarmonyToRgb(hslObject, "c");
+  hslHarmonyToRgb(tricolor_d, "d");
+  hslHarmonyToRgb(tricolor_e, "e");
+}
+function calculateCompl(hslObject) {
+  let shifted180 = hslObject.h + 180;
+  let shifted120 = hslObject.h + 120;
+  let moreL = hslObject.l + 10;
+  let lessL = hslObject.l - 10;
+  let newL = hslObject.l;
+  let newS = hslObject.s;
+
+  //shifted 180
+  const complcolor_a = { h: shifted180, s: newS, l: newL };
+  //
+  //shifted 120
+  const complcolor_b = { h: shifted120, s: newS, l: newL };
+  //console.log(newH);
+  //
+  //shifted 180 more L
+  const complcolor_d = { h: shifted180, s: newS, l: moreL };
+  //console.log(newH);
+  //
+  //shfted 120 less L
+  const complcolor_e = { h: shifted120, s: newS, l: lessL };
+  //console.log(newH);
+  //
+  hslHarmonyToRgb(complcolor_a, "a");
+  hslHarmonyToRgb(complcolor_b, "b");
+  hslHarmonyToRgb(hslObject, "c");
+  hslHarmonyToRgb(complcolor_d, "d");
+  hslHarmonyToRgb(complcolor_e, "e");
+}
+
+function calculateComp(hslObject) {
+  let ten = 10;
+  let newH = hslObject.h + ten;
+  let newS = hslObject.s;
+  let newL = hslObject.l;
+  let shifted180 = hslObject.h + 180;
+  let moreL = hslObject.l + 10;
+  //10 added to h
+  const compcolor_a = { h: newH, s: newS, l: newL };
+  //10 more added to new h
+  newH = newH + ten;
+  const compcolor_b = { h: newH, s: newS, l: newL };
+  //shifted 180
+  const compcolor_d = { h: shifted180, s: newS, l: newL };
+  //shifted 180 more L
+  const compcolor_e = { h: shifted180, s: newS, l: moreL };
+
+  hslHarmonyToRgb(compcolor_a, "a");
+  hslHarmonyToRgb(compcolor_b, "b");
+  hslHarmonyToRgb(hslObject, "c");
+  hslHarmonyToRgb(compcolor_d, "d");
+  hslHarmonyToRgb(compcolor_e, "e");
+}
+
 function calculateShad(hslObject) {
   let twenty = 20;
   let newH = hslObject.h;
@@ -160,7 +269,6 @@ function hexToRgb(hexColor) {
   const r = parseInt(hexColor.substring(1, 3), 16);
   const g = parseInt(hexColor.substring(3, 5), 16);
   const b = parseInt(hexColor.substring(5, 7), 16);
-  //console.log(`${r} ${g} ${b}`);
   //her retuneres et object
   return { r, g, b };
 }
