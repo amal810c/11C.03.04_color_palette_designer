@@ -69,7 +69,33 @@ function calculateMono(hslObject) {}
 function calculateTri(hslObject) {}
 function calculateCompl(hslObject) {}
 function calculateComp(hslObject) {}
-function calculateShad(hslObject) {}
+function calculateShad(hslObject) {
+  let twenty = 20;
+  let newH = hslObject.h;
+  let newS = hslObject.s;
+  let newL = hslObject.l + twenty;
+  //console.log(newH);
+  const shadcolor_a = { h: newH, s: newS, l: newL };
+  //
+  //console.log(analocolor_a);
+  newL = newL + twenty;
+  const shadcolor_b = { h: newH, s: newS, l: newL };
+  //console.log(newH);
+  //
+  newL = newL + twenty;
+  const shadcolor_d = { h: newH, s: newS, l: newL };
+  //console.log(newH);
+  //
+  newL = newL + twenty;
+  const shadcolor_e = { h: newH, s: newS, l: newL };
+  //console.log(newH);
+  //
+  hslHarmonyToRgb(shadcolor_a, "a");
+  hslHarmonyToRgb(shadcolor_b, "b");
+  hslHarmonyToRgb(hslObject, "c");
+  hslHarmonyToRgb(shadcolor_d, "d");
+  hslHarmonyToRgb(shadcolor_e, "e");
+}
 
 function hslHarmonyToRgb(colors, index) {
   let h = colors.h;
